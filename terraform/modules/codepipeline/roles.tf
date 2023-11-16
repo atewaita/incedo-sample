@@ -41,7 +41,8 @@ resource "aws_iam_role_policy" "lambda_codepipeline_policy" {
     {
       "Effect": "Allow",
       "Action": [
-        "codebuild:*"
+        "codebuild:*",
+        "codestar-connections:UseConnection"
           ],
       "Resource": "*"
     }
