@@ -40,7 +40,7 @@ variable "git_branch" {
 }
 variable "terraform_ver" {
     description = "Terraform Version number for passing it to codebuild"
-    default     = "1.2.2"
+    default     = "1.6.4"
     type        = string
 }
 variable "git_repo" {
