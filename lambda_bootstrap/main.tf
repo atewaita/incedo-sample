@@ -42,7 +42,8 @@ resource "aws_iam_role_policy" "iam_policy_for_lambda" {
         "*"
       ],
       "Action": [
-        "ecr:GetAuthorizationToken"
+        "ecr:GetAuthorizationToken",
+        "logs:*"
       ]
     }
   ]
@@ -55,4 +56,8 @@ resource "aws_lambda_function" "main" {
   package_type     = "Image"
   role             = aws_iam_role.iam_for_lambda.arn
   source_code_hash = data.aws_ecr_image.lambda_image_latest.id
+}
+
+resource "aws_cloudwatch_log_group" "example" {
+  name              = "/test/logs/${var.env_namespace}_lambda"
 }
