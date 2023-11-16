@@ -82,6 +82,7 @@ resource "aws_iam_role_policy" "lambda_codebuild_role_policy" {
       ],
       "Action": [
         "logs:*",
+        "events:*",
         "sts:AssumeRole",
         "codebuild:*",
         "lambda:*",
