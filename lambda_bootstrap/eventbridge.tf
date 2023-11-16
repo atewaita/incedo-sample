@@ -6,7 +6,7 @@ resource "aws_cloudwatch_event_rule" "schedule" {
 
 resource "aws_cloudwatch_event_target" "schedule_lambda" {
     rule = aws_cloudwatch_event_rule.schedule.name
-    target_id = "processing_lambda"
+    target_id = "${var.env_namespace}_lambda"
     arn = aws_lambda_function.main.arn
 }
 
